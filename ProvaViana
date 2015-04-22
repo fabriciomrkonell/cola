@@ -1,0 +1,369 @@
+Linguagem de alto nível = Programador entende;
+
+Linguagem de baixo nível = Hardware entende;
+
+Cada PORT está associado á um registrador de 8bits.
+
+MCU
+	* Microcontrolador
+	* São menos poderosos, mais lentos e possuem um espaço de endereçamento menor;
+	* "ALL IN ONE" - Periféricos;
+	* Menos capacidade de processamentos; Tempo real; Pseudomultitarefa; Mais barato; e 				consomem menos energia;
+	* PIC e Arduino;
+	* Acender led; automação residêncial; pequenos computadores;
+
+MPU
+	* Microprocessador - Núcleo
+	* Maior capacidade de processamento
+	* Não é em tempo real;
+	* Multitarefa;
+	* Pentium 4, Celerom;
+
+Barramento: Meio de transmissão de informações ou sinais.
+	* Barramento de Dados: Transmite dados entre as unidades, é bi-direcional(transmite em ambas as direções); Um barramento de dados de 16 linhas, ou 16 bits, é capaz de endereçar 2^16 palavras de memória, portanto, 65536 palavras. Um barramento de dados de 8 bits é capaz de transmitir uma palavra de memória composta por 8 bits, ou seja, 1 byte, por vez;
+
+	* Barramento de Endereço: É usado para selecionar a origem ou destino de sinais transmitidos num dos barramentos ou em suas linhas. Ele conduz endereços;
+
+	* Barramento de Controle: Sincroniza as atividades do sistema. Conduz o status da informação até o microprocessador;
+
+Transmissão Serial x Paralela:
+	* Serial
+		* Transmissão de dados mais simples
+		* Utiliza apenas um canal de comunicação
+		* Menor velocidade de transmissão
+		* Mais econômica;
+		* Transmissão em fila;
+		* Um pulso por vez;
+		* Um bit por vez;
+		* HALF DUPLEX
+			* Comunicação walk-talk, são dois rádios porém apenas um rádio transmite por vez, ou seja, um fala e o outro escuta.
+			* É quando existem dois interlocutores mas não é possível transmitir e receber simultâneamente. enquanto um transmite o outro recebe e vice-versa.
+
+		A ->->->-> a
+
+	* Paralela
+		* Transmissão de dados mais custosa e complexa
+		* Requer mais um canal de comunicação
+		* Transmissão simultâneas;
+		* Maior velocidade de transmissão
+		* FULL DUPLEX
+			* Telefone, ambos podem falar e ouvir ao mesmo tempo.
+		 	* Full-Duplex é quando é possível transmitir e receber simultâneamente.
+
+		A ---->--- a
+		B ---->--- b
+		C ---->--- c
+		D ---->--- d
+
+Taxa de Transmissão
+	* Quantidades de bits transmitidas por segundo - BPS;
+
+----------------Sistemas de comunicação-----------------------
+I2C
+	* Sistema usado quando a distância entre os microcontroladores for curta;
+	* Distância em CM;
+	* Receptores e transmissores geralmente são da mesma placa de circutos impressos;
+	* A conexão é feita via 2 condutores:
+		* 1º - Usado pra transmitir;
+		* 2º - Usado pra sincronizar o sinal de clock;
+	* Um dispositivo sempre é o master, que realiza o endereçamento de um unico dispositivo escravo, antes de inciciar a cominicação;
+	* Pode comunicar com até 112 dispositivos diferentes;
+	* Taxa de transmissão geralmente é 3.4Mb/selecionar
+
+SPI
+	* Sistema de comunicação serial que utiliza 4 condutores:
+		* 1º - Usado pra transmitir;
+		* 2º - Usado pra receber;
+		* 3º - Usado pra sincronizar o sinal de clock;
+		* 4º - Alternativo;
+	* Os dados são recebidos e enviados simultâneamente;
+	* A taxa de transmissão é mais alta que a I2C;
+
+UART
+	* Chip responsável pela serialização das informações;
+	* Trabalha baseada em comunicação assincrona;
+	* Responsável pela comunicação serial;
+	* Recebe e envia informações em sinal de clock;
+	* Usados em dispositivos sem fio;
+		* Rádio
+		* Infra vermelho
+	* Interface não tem sinal de clock;
+	* Um único condutor é usado pra receber e transmitir dados;
+	* Taxa de transmissão não é maior que 1Mbit/sec;
+
+----------------------------------------------------------
+
+CPU
+	* Unidade central de processamento/UCP/Processador;
+	* Executa as instruções enviadas;
+	* UC, ULA, REGISTRADORES E CLOCK;
+	* Acessa diretamente um registradores;
+
+SFR
+	* Registradores de funções especiais;
+
+ULA
+	* A unidade lógica aritmética é a unidade que vai realizar as operações aritméticas(and, or, calculos) e lógicas dos principais dados;
+	* Executa as operaçõs em cima dos dados - Unidade logica e aritmética;
+	* Fica no cache;
+
+UC
+	* Unidade de controle, contrala todo o funcionamento da CPU, Unicadade controladora, controla o fluxo de dados e funcionamento da CPU;
+
+PC
+	* Contador de programa - Contém o endereço da próxima instrução da proxima ação a ser executada
+
+CONVERSOR ADC
+	* Analógico para digital;
+
+CONVERSOR DAC
+	* Digital pra analógico;
+
+WhatDoger timer
+	* Dispositivo eletronico presente no microcontrolador que dispara um reset ao sistema caso for detectado um travamento no programa, ruidos de fontes aleatórias;
+	* Temporizador que de tempo e tempo, proteje o sistema;
+	* Para interferência interna não resolve, somente interferência externa;
+
+* Acumulador
+	* É o registo mais solicitado do microcontrolador.
+	* Colocados os resultados das operações efetuadas pelo programa, sendo portanto um registo cujo conteúdo está permanentemente a ser alterado.
+
+Interrupção
+	* Executar uma função externa da main;
+	* Vai dar um pause na função main;
+
+Harvad
+	* Possui os barramentos separados para instruções e dados, permitem larguras diferentes, com isso o barramento de instruções é otimizado para uma palavra de comprimento único. O número de bits do barramento de instruções depende de quantas instruções são implementadas e do número de registradores disponíveis em cada família de microcontroladores.
+	* Produz um conjunto simples de códigos de instruções e, devido ao paralelismo de sua estrutura, é capaz de executar uma instrução por ciclo de clock.
+	* Hoje um domínio da Harvard, a qual evoluiu para a chamada arquitetura Harvard estendida ou avançada
+	* Instruções e dados são armazenados em unidade de física de memória diferentes;
+
+Von-Neumman
+	* Utiliza o mesmo barramento para fazer a busca à instruções na memória de programa e
+	para acessar (escrever ou ler) na memória de dados. Pode-se dizer que a primeira é uma arquitetura paralela e a segunda serial.
+	* Permite produzir um conjunto complexo de código de instruções para o processador, com um tempo de execução por instrução de vários ciclos de clock; é mais simples, com menor número de portas lógicas, entretanto, sua velocidade é menor que a Havard.
+	* Instruções e dados compartilham a mesmo unidade física de memória.
+	* Acessam a mesma memória pelo barramento;
+
+Arquitetura RISC
+	* Computador com um conjunto de instuções redusidas;
+	* Caracteriza pela redução do tempo médio das instuções de máquina;
+	* Poucas instruções(soma + divisão);
+
+Arquitetura CISC
+	* Computador com um conjunto de instuções complexas,
+	* Objetivo de diminuir o numero de instuções que um programa precisa;
+	* Possui uma microprogramação, conjunto de codigo préprogramadas no processador;
+	* Possoi mais de 200 instruções; Mais rápido;
+
+PWM
+ * Pulse Width Modulation - Modulação por Largura de Pulsos.
+ * Método consagrado para controlar a energia - e conseqüentemente a potência - entregue à 		carga em dispositivos que trabalham em sistemas de Corrente Contínua.
+
+* Memórias
+	* ROM
+		* Dados e programas do fabricante;
+		* Programa a ser executado;
+		* O tamanho do programa depende do tamanho da memória;
+		* Memória somente de leitura;
+		* MROM
+			* Memória programada pelo fabricante;
+			* São gravadas através de do processo de fotolitografia;
+			* Larga escala de produção e preço baixo
+		* OTP ROM
+			* Permite gravar programa nele
+			* Gravavel somente uma vez
+		* UVEPROM
+			* Identica ao OTP
+			* Dados podem ser apagados através de luz ultravioleta;
+	* FLASH
+		* Inventada nos anos 80;
+		* Escrita e leitura em número limitado;
+	* RAM
+		* Memória de acesso aleatória;
+		* Perde todo seu conteudo quando a fonte de alimentação é cortada;
+		* Guarda as váriaveis do código;
+		* Armazena temporariamente os dados criados pelo microcontolador;
+	* EEPROM
+		* Seu conteudo pode ser alterado durante o processo;
+		* O Conteudo fica salvo mesmo sem energia;
+		* Usado para guardar valores que não é pra ser apagada, usados em operações
+		* Não volátil
+
+OSCILADOR
+ 	* É um componente eletrônico que utiliza a ressonância de um cristal em vibração de um material piezoeletrônico, para criar um sinal elétrico com uma frequência bastante precisa.
+ 	Esta frequência é comumente usada para medir precisamente o tempo, tais como em relógiosde quartzo, bem como para estabilizar frequências de transmissores de rádio.
+ 	* Sinal de clock vem com ele;
+ 	* Responsável pelo sincronismo;
+ 	* Tem que ficar próximo ao PIC;
+ 	* Cristal Interno
+ 		* Pouco sensivel, Frequência fixa, Baixa precisão; Muito limitado;
+ 	* Cristal Externo
+ 		* Clock limitado;
+
+RESSONADOR
+ 	* Não é tão preciso quanto o cristal;
+
+CICLO DE MÁQUINA
+	* Tempo que as instruções são executadas;
+	* Localizadas -> Carregadas -> Executadas;
+	* Ciclo de máquina é =  Frequência / 4 .... 20/4 = 5MHz;
+
+PIC
+	* É um microcontrolador
+	* Tem geralmente 35 pinos, que podem ser definidas como entrada ou saída;
+	* Para definir se o pino é de entrada ou saída, utiliza-se registradores;
+	* Cada pino tem um registrador;
+	* Usar arquitetura Harvard, onde os dados e instruções podem ser acessados simultâneamente;
+
+PORTS
+	* Portas agrupadas de até 8 pinos;
+	*	PortaA = RA0, RA1, RA2, RA3, RA4;
+	*	PortaB = RB0, RB1, RB2, RB3, RB4;
+
+TRIS
+	* Registrador que define se o pino será de entrada ou saida
+	* Se for 1, não pode configurar o PORT, se não queima;
+	* OUTPUT é obrigatório configurar;
+
+TIMERS
+	* A frequência do oscilador é definido com precisão e muito estável, que gera os impulsos 	estão sempre com a mesma largura, o que os torna ideal para a medição de tempo.
+
+COUNTERS
+ * Os pulsos de entrada se transforma em um contador, desta forma, ela não pode ser usado 		para medição de tempo, mas pode ser usado por exemplo para contar o número de rotação de 		um eixo.
+
+PRESCALER
+	* Circuito eletrônico de contagem usado para reduzir um sinal elétrico de alta frequência 	para uma frequencia mais baixa por uma divisão de um inteiro;
+
+-----------------------------------------
+
+	* PINOX
+		* TRISX = 0 -> Saída;
+		* PORTX = 0 -> Escrita;
+
+	* PINOY
+		* TRISY = 1 -> Entrada;
+		* PORTY = 1 -> Leitura;
+
+	* Exemplos
+		* TRISB  = 0b000000001 -Entrada
+												|
+											Saída
+
+		* TRISBbits.TRISC1 = 0;
+
+		* PORTB = 0b01010010 -0V
+											|
+									VCC ou 5V
+
+		* PORTBbits.RB1 = 0;
+
+		Acender LED -> TRISX = 0;
+		Verificar Botão -> TRISX = 1;
+
+-----------------------------------------
+
+REGISTRADORES
+	* Circuitos internos do microprocessador capazes de armazenar memória, pode ser acessadada diretamente pela cpu;
+	* Locais de memória, cujo o papel é ajudar a executar vários operações;
+	* Entrada = 1 -> Lê o valor presente no pino;
+	* Saída = 0 -> Escreve valor;
+
+GERAL
+	* Digital = 0 ou 1;
+	* Analógica = 0 a 5V;
+	* Ob00000000 = Binário
+	* 0x0000 = Hexadecimal
+	* Caso o pino 1 não seja energizado o reset fica o tempo todo ativado, ou seja, o master clear tem que está em nível lógico alto;
+	* Em série a corrente é igual;
+
+------------------------------------------
+
+0b76543210
+---------------
+0b00001010 = 10
+0xFF = 255
+345 = 345
+
+------------------------------------------
+
+To = 1 / f ... 1 / 10Mhz = 10us
+		___			___
+___|	 |___|	 |___
+		 |
+		 To
+
+------------------------------------------
+
+VLed = 2,1V;
+ILed = 19mA;
+V = Vr + VLed
+Vr = 5 -2,1
+Vr = 2,9V
+
+R = V / I ... 2,9 / 0,019 = 156Mh
+
+------------------------------------------
+
+RPi = 5mA ----- 3,3V == 50mA
+Rpi = 5v / 0,005 = 1000KHom
+
+------------------------------------------
+
+13V o Microcontrolador = Manda pro código;
+Binário vai pro Pic
+
+------------------------------------------
+
+Comunicação Serial
+
+TX - Envia
+RX - Recebe
+
+------------------------------------------
+
+Temperatura
+
+10mV/ºC = 10mv = 1ºC
+					20mv = 20ºC
+					250mv = 25ºC
+
+------------------------------------------
+
+Passo = Vref / (2^N - 1)
+
+N = Precisão do conversor AD (Capacidade para converter em Bit - 0 e 1)
+
+VRef = VDD = 5V;
+N = 10 bits -> Precisão de 10 bits
+
+Passo = 5 / (2 ^ 10) - 1 .... 5 / 1023 ....0,00485mV ou 5V
+
+OBS: O resultado em inteiro representa a contagens, ou seja, o número de degrau equivalente ao numero da tensão de entreada;
+
+V          CONT          T
+0V         0             0ºC
+5V         1023          500ºC
+200Mv                    20ºC
+
+Arredonda pra baixo;
+
+------------------------------------------
+
+Binário - Decimal
+10101011 .... 128 + 0 + 32 + 0 + 8 + 0 + 2 + 1 = 171;
+
+Binário - Hexadecimal
+11001100 .... [1100, 1100] = CC;
+
+Hexadecimal - Binário
+AA .... [1010, 1010] = 10101010;
+
+Hexadecimal - Decimal
+AA .... [1010, 1010] = 10101010 .... 128 + 0 + 32 + 0 + 8 + 0 + 2 + 0 = 170;
+
+------------------------------------------
+
+BIT = Menor unidade de medida de informação; 1 ou 0;
+BYTE = Conjunto de 8 bits; Representam letras, sinais...;
+Circutos lógicos computacionais = É aquele que executa uma expressão bolleana através de várias portas lógicas existentes; Ás saídas dependem unicamente da entrada;
